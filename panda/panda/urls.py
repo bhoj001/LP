@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path #,include
+#from django.urls import path 
 from django.conf.urls import url,include
 #For receiving static files
 from django.conf.urls.static import static
@@ -22,10 +22,11 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url('admin/', admin.site.urls),
     #  url(
     #     r'^$', TemplateView.as_view(template_name="templates/index.html"),
     #     name="index"
     # ),
     url(r'^$', include('panda_apps.main.urls')), #for main page
+    url(r'^contact$',include('panda_apps.contact.urls'))
 ]
